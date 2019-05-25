@@ -1,44 +1,35 @@
-import os
-
-from music import Song
-from player import Player
-from pydub import AudioSegment
+from library import Library
+from player import Player, PlayerConfig
 
 
-def play_music(data_dir, music_file):
-    print("Playing: ", music_file)
-    filepath = os.path.join(data_dir, music_file)
-    song = Song(filepath)
-    p = Player(song)
-    p.play()
+def play_track(track):
+    print("Playing: ", track.name)
+
+    config = PlayerConfig(convert=False)
+    p = Player(track)
+    p.play(config=config)
 
     print("Press ENTER to pause and resume")
     playing = True
     while True:
-        input("State: {}".format(p.get_state()))
-        p.pause() if playing else p.resume()
-        playing = not playing
-
-
-def convert_m4a_to_mp3(filename_in, filename_out):
-    sound = AudioSegment.from_file(filename_in, format="m4a")
-    sound.export(filename_out, format="mp3")
-
-
-def clean_mp3(filename):
-    sound = AudioSegment.from_file(filename, format="mp3")
-    sound.export(filename, format="mp3")
+        signal = input("State: {}".format(p.get_state()))
+        if signal == 's':
+            p.stop()
+            break
+        elif signal == 'p':
+            p.pause() if playing else p.resume()
+            playing = not playing
+        elif signal == 'f':
+            p.forward()
+        elif signal == 'b':
+            p.rewind()
 
 
 if __name__ == '__main__':
-    # music_file = 'Someone Like You.mp3'
-    music_file = 'Near To You.mp3'
-    # music_file = 'Alone in Kyoto.mp3'
-    music_file = 'Shock.mp3'
-    # convert_m4a_to_mp3('./data/No One.m4a', './data/No One.mp3')
-    music_file = 'No One.mp3'
-    music_file = 'Goin Back to Hogwarts.mp3'
-    clean_mp3('./data/' + music_file)
+    ['Someone Like You', 'Near To You', 'Shock', 'No One', 'Goin Back to Hogwarts']
 
-    data_dir = './data'
-    play_music(data_dir, music_file)
+    library_file = './data/library.xml'
+    library = Library(library_file)
+    # track = library.find_one(lambda t: 'Hogwarts' in t.name)
+    track = library.find_one(lambda t: 'Joy' in t.name)
+    play_track(track)
