@@ -1,13 +1,12 @@
 from library import Library
-from player import Player, PlayerConfig
+from player import Player
 
 
 def play_track(track):
     print("Playing: ", track.name)
 
-    config = PlayerConfig(convert=False)
     p = Player(track)
-    p.play(config=config)
+    p.play()
 
     print("Press ENTER to pause and resume")
     playing = True
@@ -21,15 +20,16 @@ def play_track(track):
             playing = not playing
         elif signal == 'f':
             p.forward()
-        elif signal == 'b':
+        elif signal == 'r':
             p.rewind()
 
 
 if __name__ == '__main__':
-    ['Someone Like You', 'Near To You', 'Shock', 'No One', 'Goin Back to Hogwarts']
-
     library_file = './data/library.xml'
     library = Library(library_file)
-    # track = library.find_one(lambda t: 'Hogwarts' in t.name)
-    track = library.find_one(lambda t: 'Joy' in t.name)
+    # track = library.find_one(lambda t: 'Jesu Joy' in t.name) # Works
+    # track = library.find_one(lambda t: "Shock" in t.name) # Works
+    track = library.find_one(lambda t: "Goin' Back to Hogwarts" in t.name) # Faulty mp3
+    # track = library.find_one(lambda t: "No One" in t.name) # Only m4a
+
     play_track(track)

@@ -1,21 +1,9 @@
-import audio_utilities
 import os
-os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
-import pygame
+import time
+import vlc
 
-from dataclasses import dataclass
 from multiprocessing import Process, Pipe
 from urllib.parse import urlparse, unquote
-
-
-@dataclass
-class PlayerConfig:
-    frequency: int = 44100
-    bitsize: int = -16
-    channels: int = 2
-    buffer: int = 2048
-    volume: int = 0.8
-    convert: bool = False
 
 
 class Player:
@@ -30,58 +18,50 @@ class Player:
         self._state = Player.PAUSE
         self._start_time = 0
 
-    def play(self, config: PlayerConfig = None) -> None:
-        if config is None:
-            config = PlayerConfig()
-
+    def play(self) -> None:
         self._state = Player.PLAY
         self._pipe, child_pipe = Pipe()
-        filename = self._parse_location(self._track.location)
-        if config.convert:
-            filename = self._convert(filename)
-        args = (child_pipe, filename, config)
+        filepath = self._parse_location(self._track.location)
+        args = (child_pipe, filepath)
         p = Process(target=self._play, args=args)
         p.start()
         # TODO: Check what process clean up is needed
         # p.join()
 
-    def _convert(self, filename):
-        track_title = self._track.name
-        new_filename = os.path.join('./data', 'tracks', track_title + '.mp3')
-        audio_utilities.clean_mp3(filename, new_filename)
-        return new_filename
-
     def _parse_location(self, location):
         parser = urlparse(unquote(location))
         return os.path.abspath(os.path.join(parser.netloc, parser.path))
 
-    def _play(self, pipe, filename, config):
-        pygame.mixer.init(config.frequency, config.bitsize, config.channels, config.buffer)
-        pygame.mixer.music.set_volume(config.volume)
-        pygame.mixer.music.load(filename)
-        pygame.mixer.music.play()
+    def _play(self, pipe, filepath):
+        vlc_instance = vlc.Instance()
+        vlc_player = vlc_instance.media_player_new()
+        media = vlc_instance.media_new(filepath)
+        vlc_player.set_media(media)
+        vlc_player.play()
+        time.sleep(.5)
 
-        clock = pygame.time.Clock()
-        while pygame.mixer.music.get_busy():
+        while True:
             if pipe is not None:
                 try:
                     signal = pipe.recv()
                 except OSError:
                     break
+                except KeyboardInterrupt:
+                    break
                 if signal is not None:
                     if signal[0] == Player.PLAY:
-                        pygame.mixer.music.unpause()
+                        vlc_player.play()
                     elif signal[0] == Player.PAUSE:
-                        pygame.mixer.music.pause()
+                        vlc_player.pause()
                     elif signal[0] == Player.STOP:
                         pipe.close()
+                        break
                     elif signal[0] == Player.FORWARD:
-                        self._start_time = pygame.mixer.music.get_pos() / 1000 + self._start_time + 5
-                        pygame.mixer.music.play(0, self._start_time)
+                        vlc_player.set_position(vlc_player.get_position() + 0.05)
                     elif signal[0] == Player.REWIND:
-                        self._start_time = pygame.mixer.music.get_pos() / 1000 + self._start_time - 5
-                        pygame.mixer.music.play(0, self._start_time)
-            clock.tick(30)
+                        vlc_player.set_position(vlc_player.get_position() - 0.05)
+                        pass
+            time.sleep(1)
 
     def pause(self) -> None:
         # TODO: Check for a broken pipe when song is done playing
