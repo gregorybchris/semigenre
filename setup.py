@@ -9,7 +9,7 @@ setup(
     long_description_content_type='text/markdown',
     keywords=['music', 'song', 'genre', 'recommend', 'sound', 'tune'],
     version='0.0.3',
-    license='Apache',
+    license='Apache Software License',
     author='Chris Gregory',
     author_email='christopher.b.gregory@gmail.com',
     url='https://github.com/gregorybchris/semigenre',
