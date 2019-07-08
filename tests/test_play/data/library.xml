@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Major Version</key><integer>1</integer>
+	<key>Minor Version</key><integer>1</integer>
+	<key>Application Version</key><string>12.9.5.5</string>
+	<key>Date</key><date>2019-05-25T05:00:42Z</date>
+	<key>Features</key><integer>5</integer>
+	<key>Show Content Ratings</key><true/>
+	<key>Library Persistent ID</key><string>6945FA3677836F4F</string>
+	<key>Tracks</key>
+	<dict>
+		<key>1619</key>
+		<dict>
+			<key>Track ID</key><integer>1619</integer>
+			<key>Size</key><integer>23926667</integer>
+			<key>Total Time</key><integer>593763</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2014-07-04T18:46:15Z</date>
+			<key>Date Added</key><date>2014-06-12T07:53:15Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>847CEC6C5875A709</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Goin' Back to Hogwarts</string>
+			<key>Artist</key><string>Starkid</string>
+			<key>Album Artist</key><string>Starkid</string>
+			<key>Album</key><string>A Very Potter Musical</string>
+			<key>Genre</key><string>Musicals</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Comments</key><string>A Very Potter Musical Cast</string>
+			<key>Sort Album</key><string>Very Potter Musical</string>
+			<key>Location</key><string>file:///Users/chris/Music/iTunes/iTunes%20Media/Starkid/A%20Very%20Potter%20Musical/01%20Goin'%20Back%20to%20Hogwarts.mp3</string>
+		</dict>
+		<key>1669</key>
+		<dict>
+			<key>Track ID</key><integer>1669</integer>
+			<key>Size</key><integer>8807969</integer>
+			<key>Total Time</key><integer>272744</integer>
+			<key>Date Modified</key><date>2012-06-13T07:15:45Z</date>
+			<key>Date Added</key><date>2014-06-12T07:53:15Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Volume Adjustment</key><integer>254</integer>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3577192629</integer>
+			<key>Play Date UTC</key><date>2017-05-09T23:37:09Z</date>
+			<key>Skip Count</key><integer>2</integer>
+			<key>Skip Date</key><date>2017-05-09T23:37:25Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>4D1B767C8894A0C5</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Alone in Kyoto</string>
+			<key>Artist</key><string>Air</string>
+			<key>Album Artist</key><string>Air</string>
+			<key>Album</key><string>Talkie Walkie</string>
+			<key>Genre</key><string>Electronic</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file:///Users/chris/Music/iTunes/iTunes%20Media/Air/Talkie%20Walkie/Alone%20in%20Kyoto.mp3</string>
+		</dict>
+	</dict>
+	<key>Playlists</key>
+	<array>
+	</array>
+	<key>Music Folder</key><string>file:///Users/chris/Music/iTunes/iTunes%20Media/</string>
+</dict>
+</plist>

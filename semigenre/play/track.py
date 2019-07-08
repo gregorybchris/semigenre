@@ -1,9 +1,12 @@
+"""Track DTO based on the iTunes track specification."""
 from dataclasses import dataclass
 from datetime import datetime
 
 
 @dataclass
 class Track:
+    """Track DTO based on the iTunes track specification."""
+
     album: str
     album_artist: str
     album_rating: int
@@ -69,17 +72,32 @@ class Track:
 
 
 class TrackFactory:
+    """Factory for Tracks."""
+
     @staticmethod
     def create(d: dict) -> Track:
-        properties = ['Album', 'Album Artist', 'Album Rating', 'Album Rating Computed', 'Artist',
-                      'Artwork Count', 'BPM', 'Bit Rate', 'Clean', 'Comments', 'Compilation', 'Composer',
-                      'Content Rating', 'Date Added', 'Date Modified', 'Disc Count', 'Disc Number', 'Episode',
-                      'Episode Order', 'Explicit', 'File Folder Count', 'File Type', 'Genre', 'Grouping',
-                      'Has Video', 'Kind', 'Library Folder Count', 'Location', 'Movie', 'Name', 'Persistent ID',
-                      'Play Count', 'Play Date', 'Play Date UTC', 'Podcast', 'Protected', 'Purchased', 'Rating',
-                      'Release Date', 'Sample Rate', 'Season', 'Series', 'Size', 'Skip Count', 'Skip Date',
-                      'Sort Album', 'Sort Album Artist', 'Sort Artist', 'Sort Composer', 'Sort Name', 'Start Time',
-                      'Stop Time', 'TV Show', 'Total Time', 'Track Count', 'Track ID', 'Track Number', 'Track Type',
-                      'Unplayed', 'Volume Adjustment', 'Work', 'Year']
+        """
+        Create a track based on a dictionary of track attributes.
+
+        :param d: A dictionary containing the track attributes.
+        :return: A new Track object based on d.
+        """
+        properties = ['Album', 'Album Artist', 'Album Rating',
+                      'Album Rating Computed', 'Artist', 'Artwork Count',
+                      'BPM', 'Bit Rate', 'Clean', 'Comments', 'Compilation',
+                      'Composer', 'Content Rating', 'Date Added',
+                      'Date Modified', 'Disc Count', 'Disc Number', 'Episode',
+                      'Episode Order', 'Explicit', 'File Folder Count',
+                      'File Type', 'Genre', 'Grouping', 'Has Video', 'Kind',
+                      'Library Folder Count', 'Location', 'Movie', 'Name',
+                      'Persistent ID', 'Play Count', 'Play Date',
+                      'Play Date UTC', 'Podcast', 'Protected', 'Purchased',
+                      'Rating', 'Release Date', 'Sample Rate', 'Season',
+                      'Series', 'Size', 'Skip Count', 'Skip Date',
+                      'Sort Album', 'Sort Album Artist', 'Sort Artist',
+                      'Sort Composer', 'Sort Name', 'Start Time', 'Stop Time',
+                      'TV Show', 'Total Time', 'Track Count', 'Track ID',
+                      'Track Number', 'Track Type', 'Unplayed',
+                      'Volume Adjustment', 'Work', 'Year']
         track_args = [d.get(p) for p in properties]
         return Track(*track_args)

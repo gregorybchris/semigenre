@@ -1,4 +1,9 @@
+"""Tags for track attributes."""
+
+
 class Tags:
+    """Tags for track attributes."""
+
     THEORY = {
         'maj7',
         'diminished'
