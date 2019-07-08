@@ -4,9 +4,21 @@
 
 The SemiGenre library provides a Python interface for tagging and comparing music in a personal audio library. The purpose of SemiGenre is primarily to discover structure in musical preferences through [semi-supervised](https://en.wikipedia.org/wiki/Semi-supervised_learning) machine learning. Genres are not always the best way to talk about musical taste and SemiGenre aims to personalize the process of music recommendation with fine-grain analysis of musical clusters smaller than genres.
 
-- [Source](https://github.com/gregorybchris/semigenre)
-- [PyPI Feed](https://pypi.org/project/semigenre/)
-- [Documentation](http://www.chrisgregory.me)
+
+## Installation
+
+Install the current PyPI release:
+
+```python
+pip install semigenre
+```
+
+Or install from source:
+
+```python
+pip install git+https://github.com/gregorybchris/semigenre
+```
+
 
 ## Dependencies
 
