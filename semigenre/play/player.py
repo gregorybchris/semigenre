@@ -54,6 +54,7 @@ class Player:
                     elif signal[0] == Player.PAUSE:
                         vlc_player.pause()
                     elif signal[0] == Player.STOP:
+                        vlc_player.stop()
                         pipe.close()
                         break
                     elif signal[0] == Player.FORWARD:

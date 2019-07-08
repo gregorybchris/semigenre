@@ -1,13 +1,14 @@
 import plistlib
 
-from track import TrackFactory
+from semigenre.play.track import TrackFactory
 
 
 class Library:
     TRACKS = 'Tracks'
 
     def __init__(self, filename, binary=False):
-        self._library = plistlib.readPlist(filename)
+        with open(filename, 'rb') as f:
+            self._library = plistlib.load(f)
         self._tracks = self._parse_tracks()
 
     def _parse_tracks(self):

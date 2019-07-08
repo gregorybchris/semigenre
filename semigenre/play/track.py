@@ -77,9 +77,9 @@ class TrackFactory:
                       'Episode Order', 'Explicit', 'File Folder Count', 'File Type', 'Genre', 'Grouping',
                       'Has Video', 'Kind', 'Library Folder Count', 'Location', 'Movie', 'Name', 'Persistent ID',
                       'Play Count', 'Play Date', 'Play Date UTC', 'Podcast', 'Protected', 'Purchased', 'Rating',
-                      'Release Date', 'Sample Rate', 'Season', 'Series', 'Size', 'Skip Count', 'Skip Date', 'Sort Album',
-                      'Sort Album Artist', 'Sort Artist', 'Sort Composer', 'Sort Name', 'Start Time', 'Stop Time',
-                      'TV Show', 'Total Time', 'Track Count', 'Track ID', 'Track Number', 'Track Type', 'Unplayed',
-                      'Volume Adjustment', 'Work', 'Year']
+                      'Release Date', 'Sample Rate', 'Season', 'Series', 'Size', 'Skip Count', 'Skip Date',
+                      'Sort Album', 'Sort Album Artist', 'Sort Artist', 'Sort Composer', 'Sort Name', 'Start Time',
+                      'Stop Time', 'TV Show', 'Total Time', 'Track Count', 'Track ID', 'Track Number', 'Track Type',
+                      'Unplayed', 'Volume Adjustment', 'Work', 'Year']
         track_args = [d.get(p) for p in properties]
         return Track(*track_args)

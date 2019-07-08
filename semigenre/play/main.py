@@ -1,5 +1,5 @@
-from library import Library
-from player import Player
+from semigenre.play.library import Library
+from semigenre.play.player import Player
 
 
 def play_track(track):
