@@ -1,11 +1,11 @@
-"""Library for searching through iTunes tracks."""
+"""Library for searching through personal music."""
 import plistlib
 
 from semigenre.play.track import TrackFactory
 
 
 class Library:
-    """Library for searching through iTunes tracks."""
+    """Library for searching through personal music."""
 
     TRACKS = 'Tracks'
 

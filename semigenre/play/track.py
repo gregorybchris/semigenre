@@ -1,11 +1,11 @@
-"""Track DTO based on the iTunes track specification."""
+"""Music track DTO."""
 from dataclasses import dataclass
 from datetime import datetime
 
 
 @dataclass
 class Track:
-    """Track DTO based on the iTunes track specification."""
+    """Music track DTO."""
 
     album: str
     album_artist: str
