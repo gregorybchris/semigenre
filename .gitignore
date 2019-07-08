@@ -1,6 +1,15 @@
-.DS_Store
-__pycache__
+# Package Files
 *.egg-info
-*.pyc
 build
 dist
+
+# Cache Files
+__pycache__
+*.pyc
+
+# Test Coverage
+.coverage*
+htmlcov
+
+# OS Files
+.DS_Store

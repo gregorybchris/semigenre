@@ -23,3 +23,10 @@ def test_forward_rewind(playable_track):
     p.forward()
     p.rewind()
     p.stop()
+
+
+def test_get_state(playable_track):
+    p = Player(playable_track)
+    p.play()
+    assert p.get_state() == Player.PLAY
+    p.stop()
