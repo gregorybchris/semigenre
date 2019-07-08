@@ -1,3 +1,4 @@
+"""Setup module for setuptools."""
 from setuptools import setup, find_packages
 
 
@@ -7,7 +8,7 @@ setup(
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     keywords=['music', 'song', 'genre', 'recommend', 'sound', 'tune'],
-    version='0.0.2',
+    version='0.0.3',
     license='Apache',
     author='Chris Gregory',
     author_email='christopher.b.gregory@gmail.com',
