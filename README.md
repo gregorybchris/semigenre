@@ -1,4 +1,4 @@
-# Semi-Genre
+# SemiGenre
 
 Semi-supervised genre classification
 
