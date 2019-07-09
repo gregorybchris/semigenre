@@ -9,17 +9,18 @@ class Library:
 
     TRACKS = 'Tracks'
 
-    def __init__(self, filename, binary=False):
+    def __init__(self, filename):
         """
         Construct a Library.
 
-        :param filename: Path to the library.xml file.
+        :param filename: Path to the library file (library.xml).
         """
         with open(filename, 'rb') as f:
             self._library = plistlib.load(f)
         self._tracks = self._parse_tracks()
 
     def _parse_tracks(self):
+        """Extract tracks from the library file."""
         records = self._library[Library.TRACKS]
         return [TrackFactory.create(record) for _, record in records.items()]
 

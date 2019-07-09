@@ -1,6 +1,6 @@
 import pytest
 
-from semigenre.rate import tags
+from semigenre.rating import tags
 
 
 @pytest.fixture(scope='session', params=tags.ALL)

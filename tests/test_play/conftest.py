@@ -1,4 +1,5 @@
 """Test configuration for semigenre.play tests."""
+import os
 import pytest
 
 from unittest.mock import MagicMock
@@ -10,8 +11,8 @@ from semigenre.play.library import Library
 def small_library():
     """Test fixture for a Library object."""
     # TODO: Make this path work from any directory
-    library_file = './tests/test_play/data/library.xml'
-    return Library(library_file)
+    filename = os.path.join(os.path.dirname(__file__), 'data', 'library.xml')
+    return Library(filename)
 
 
 @pytest.fixture(scope='session')
