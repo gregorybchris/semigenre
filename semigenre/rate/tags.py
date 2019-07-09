@@ -1,51 +1,63 @@
 """Tags for track attributes."""
 
 
-class Tags:
-    """Tags for track attributes."""
+BRASS = {
+    'horns'
+}
 
-    THEORY = {
-        'maj7',
-        'diminished'
-    }
 
-    PERCUSSION = {
-        'snaps',
-        'claps',
-        'cymbals',
-        'snare',
-        'drum-fills',
-        'shaker'
-    }
+HARMONIES = {
+    'single-backup',
+    'multipart-harmony',
+    'choir'
+}
 
-    KEYBOARD = {
-        'rhodes-organ',
-        'hammond-organ',
-        'keyboard',
-        'piano'
-    }
 
-    VOCALS = {
-        'female',
-        'male'
-    }
+KEYBOARD = {
+    'rhodes-organ',
+    'hammond-organ',
+    'electric-keyboard',
+    'grand-piano',
+    'synth'
+}
 
-    HARMONIES = {
-        'single-backup',
-        'multipart-harmony',
-        'choir'
-    }
 
-    BRASS = {
-        'horns'
-    }
+PERCUSSION = {
+    'snaps',
+    'claps',
+    'cymbals',
+    'snare',
+    'drum-fills',
+    'shaker',
+    'drum-pad'
+}
 
-    STRINGS = {
-        'electric-guitar',
-        'acoustic-guitar',
-        'electric-bass',
-        'banjo',
-        'violin',
-        'string-section',
-        'pedal-steel'
-    }
+
+STRINGS = {
+    'electric-guitar',
+    'acoustic-guitar',
+    'electric-bass',
+    'banjo',
+    'violin',
+    'string-section',
+    'pedal-steel'
+}
+
+
+THEORY = {
+    'maj7',
+    'diminished',
+    'suspended',
+    'min7',
+    'dom7',
+    'accelerando'
+}
+
+
+VOCALS = {
+    'female',
+    'male'
+}
+
+
+ALL = BRASS | HARMONIES | KEYBOARD | PERCUSSION | STRINGS | THEORY | VOCALS
