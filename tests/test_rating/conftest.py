@@ -1,3 +1,4 @@
+"""Test configuration for semigenre.rating tests."""
 import pytest
 
 from semigenre.rating import tags
