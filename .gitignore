@@ -1,9 +1,9 @@
-# Package Files
+# Packaging
 *.egg-info
 build
 dist
 
-# Cache Files
+# Cache
 __pycache__
 *.pyc
 
@@ -11,5 +11,8 @@ __pycache__
 .coverage*
 htmlcov
 
-# OS Files
+# OS 
 .DS_Store
+
+# IDE
+.vscode
