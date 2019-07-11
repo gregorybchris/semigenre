@@ -63,9 +63,9 @@ class Player:
             if pipe is not None:
                 try:
                     signal = pipe.recv()
-                except OSError:
+                except OSError:  # pragma: no cover
                     break
-                except KeyboardInterrupt:
+                except KeyboardInterrupt:  # pragma: no cover
                     break
                 if signal is not None:
                     if signal[0] == Player.PLAY:

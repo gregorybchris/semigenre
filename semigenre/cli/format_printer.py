@@ -22,13 +22,32 @@ class FormatPrinter:
     COLORS = [BLUE, GREEN, RED, YELLOW, MAGENTA, CYAN, WHITE, PURPLE]
 
     @staticmethod
-    def print(message: str,
-              color: str = RESET,
-              bold: bool = False,
-              italics: bool = False,
-              dim: bool = False,
-              underline: bool = False,
-              end: str = '\n') -> None:
+    def format(message, color='', bold=False, italics=False,
+               dim=False, underline=False):
+        """
+        Format a message with colors and styles.
+
+        :param message: Message to print.
+        :param color: Color to print the text.
+        :param bold: Whether to bold the text.
+        :param italics: Whether to italicize the text.
+        :param dim: Whether to dim the text.
+        :param underline: Whether to underline the text.
+        :return: Formatted message.
+        """
+        bold_pre = FormatPrinter.BOLD if bold else ''
+        italics_pre = FormatPrinter.ITALICS if italics else ''
+        dim_pre = FormatPrinter.DIM if dim else ''
+        underline_pre = FormatPrinter.UNDERLINE if underline else ''
+
+        full_pre = bold_pre + italics_pre + dim_pre + underline_pre
+        reset = FormatPrinter.RESET
+
+        return f"{color}{full_pre}{message}{reset}"
+
+    @staticmethod
+    def print(message, color='', bold=False, italics=False,
+              dim=False, underline=False, end='\n'):
         """
         Print a message to standard output with formatting.
 
@@ -40,11 +59,7 @@ class FormatPrinter:
         :param underline: Whether to underline the text.
         :param end: Text to end the printed line.
         """
-        bold_pre = FormatPrinter.BOLD if bold else ''
-        italics_pre = FormatPrinter.ITALICS if italics else ''
-        dim_pre = FormatPrinter.DIM if dim else ''
-        underline_pre = FormatPrinter.UNDERLINE if underline else ''
-        full_pre = bold_pre + italics_pre + dim_pre + underline_pre
-        reset = FormatPrinter.RESET
-        formatted = "{}{}{}{}".format(full_pre, color, message, reset)
+        formatted = FormatPrinter.format(message, color=color, bold=bold,
+                                         italics=italics, dim=dim,
+                                         underline=underline)
         print(formatted, end=end)
