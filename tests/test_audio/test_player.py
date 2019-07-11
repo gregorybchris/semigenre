@@ -1,6 +1,6 @@
 import time
 
-from semigenre.play.player import Player
+from semigenre.audio.player import Player
 
 
 def test_play(playable_track):

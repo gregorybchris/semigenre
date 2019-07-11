@@ -1,10 +1,10 @@
-"""Test configuration for semigenre.play tests."""
+"""Test configuration for semigenre.audio tests."""
 import os
 import pytest
 
 from unittest.mock import MagicMock
 
-from semigenre.play.library import Library
+from semigenre.audio.library import Library
 
 
 @pytest.fixture(scope='session')

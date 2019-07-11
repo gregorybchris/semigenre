@@ -1,7 +1,7 @@
 """Library for searching through personal music."""
 import plistlib
 
-from semigenre.play.track import TrackFactory
+from semigenre.audio.track import TrackFactory
 
 
 class Library:

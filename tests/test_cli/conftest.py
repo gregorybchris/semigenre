@@ -1,4 +1,4 @@
-"""Test configuration for semigenre.rating tests."""
+"""Test configuration for semigenre.cli tests."""
 import pytest
 
 from semigenre.cli.format_printer import FormatPrinter
