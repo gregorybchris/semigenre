@@ -1,10 +1,10 @@
-from semigenre.cli.format_printer import FormatPrinter
+from semigenre.cli.format_io import FormatIO
 
 
 def test_print_all_colors(color):
-    FormatPrinter.print("TEXT", color=color)
+    FormatIO.print("TEXT", color=color)
 
 
 def test_print_formats():
-    FormatPrinter.print("TEXT", bold=True, italics=True,
-                        underline=True, dim=True)
+    FormatIO.print("TEXT", bold=True, italics=True,
+                   underline=True, dim=True)

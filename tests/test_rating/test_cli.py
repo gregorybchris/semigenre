@@ -11,8 +11,22 @@ class MockCLI:
         return self._responses.pop(0)
 
 
-@patch('builtins.input', MockCLI(['Chris', 'q']))
-def test_run():
+@patch('builtins.input', MockCLI(['Chris', 't', 'q']))
+def test_run_tag():
+    library_mock = MagicMock()
+    cli = rating_cli.RatingCLI(library_mock)
+    cli.run()
+
+
+@patch('builtins.input', MockCLI(['Chris', 'c', 'q']))
+def test_run_compare():
+    library_mock = MagicMock()
+    cli = rating_cli.RatingCLI(library_mock)
+    cli.run()
+
+
+@patch('builtins.input', MockCLI(['Chris', 'h', 'q']))
+def test_run_help():
     library_mock = MagicMock()
     cli = rating_cli.RatingCLI(library_mock)
     cli.run()

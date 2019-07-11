@@ -1,5 +1,5 @@
 """Wrapper for enumerated CLI user options."""
-from semigenre.cli.format_printer import FormatPrinter
+from semigenre.cli.format_io import FormatIO
 
 
 class Options:
@@ -44,12 +44,13 @@ class Options:
         alias_items = enumerate(self._aliases.items())
         aliases = dict()
         for option_index, (option, (alias, _)) in alias_items:
-            aliases[option] = alias, option_index + 1
+            aliases[option] = [alias, str(option_index + 1)]
         return aliases
 
     def print_formatted(self):
         """Print the formatted options."""
         # TODO: Adhere to max_line constraint
+        FormatIO.print("\nOptions:", bold=True)
         for option_index, option in enumerate(self._options):
             print(f"{option_index + 1}: ", end='')
 
@@ -58,7 +59,8 @@ class Options:
             end = option[alias_index + 1:]
 
             print(beginning, end='')
-            FormatPrinter.print(alias, color=FormatPrinter.BLUE, end='')
+            FormatIO.print(alias, color=FormatIO.BLUE,
+                           bold=True, end='')
             print(end, end='')
             print(' ' * self._option_spacing, end='')
         print()
