@@ -61,3 +61,13 @@ VOCALS = {
 
 
 ALL = BRASS | HARMONIES | KEYBOARD | PERCUSSION | STRINGS | THEORY | VOCALS
+
+TAG_GROUPS = {
+    'brass': BRASS,
+    'harmonies': HARMONIES,
+    'keyboard': KEYBOARD,
+    'percussion': PERCUSSION,
+    'strings': STRINGS,
+    'theory': THEORY,
+    'vocals': VOCALS
+}

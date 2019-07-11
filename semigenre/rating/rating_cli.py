@@ -4,6 +4,8 @@
 class RatingCLI:
     """Command line interface for rating tracks."""
 
+    QUIT = 'q'
+
     def __init__(self, library):
         """Construct a RatingCLI."""
         self._library = library
@@ -12,9 +14,10 @@ class RatingCLI:
         """Run the CLI."""
         print("Welcome to the SemiGenre RatingCLI")
         name = input("Please enter your name: ")
+
+        while True:
+            decision = input("Input: ")
+            if decision == RatingCLI.QUIT:
+                break
+
         print("Thanks for using SemiGenre, {}".format(name))
-        decision = input("What's your decision?")
-        if decision == 'no':
-            print("That's too bad!")
-        else:
-            print("Nice!")

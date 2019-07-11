@@ -1,6 +1,6 @@
 from unittest.mock import MagicMock, patch
 
-from semigenre.rating import cli
+from semigenre.rating import rating_cli
 
 
 class MockCLI:
@@ -11,15 +11,8 @@ class MockCLI:
         return self._responses.pop(0)
 
 
-@patch('builtins.input', MockCLI(['Chris', 'yes']))
-def test_run_yes():
+@patch('builtins.input', MockCLI(['Chris', 'q']))
+def test_run():
     library_mock = MagicMock()
-    rating_cli = cli.RatingCLI(library_mock)
-    rating_cli.run()
-
-
-@patch('builtins.input', MockCLI(['Chris', 'no']))
-def test_run_no():
-    library_mock = MagicMock()
-    rating_cli = cli.RatingCLI(library_mock)
-    rating_cli.run()
+    cli = rating_cli.RatingCLI(library_mock)
+    cli.run()
