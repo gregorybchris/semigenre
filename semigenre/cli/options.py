@@ -1,4 +1,5 @@
 """Wrapper for enumerated CLI user options."""
+from semigenre.cli.color import Color
 from semigenre.cli.format_io import FormatIO
 
 
@@ -59,7 +60,7 @@ class Options:
             end = option[alias_index + 1:]
 
             print(beginning, end='')
-            FormatIO.print(alias, color=FormatIO.BLUE,
+            FormatIO.print(alias, color=Color.BLUE,
                            bold=True, end='')
             print(end, end='')
             print(' ' * self._option_spacing, end='')

@@ -1,4 +1,5 @@
 """Main menu command."""
+from semigenre.cli.color import Color
 from semigenre.cli.command import Command
 from semigenre.cli.format_io import FormatIO
 from semigenre.cli.options import Options
@@ -28,7 +29,7 @@ class MainCommand(Command):
             if done:
                 break
             if not valid:
-                FormatIO.print("Invalid command...", color=FormatIO.RED)
+                FormatIO.print("Invalid command...", color=Color.RED)
 
         print(f"Thanks for using SemiGenre!")
 

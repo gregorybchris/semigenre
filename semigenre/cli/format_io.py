@@ -1,25 +1,15 @@
 """Printer for colored console text."""
+from semigenre.cli.color import Color
 
 
 class FormatIO:
     """Printer for colored console text."""
-
-    BLUE = '\033[34m'
-    GREEN = '\033[32m'
-    RED = '\033[31m'
-    YELLOW = '\033[33m'
-    MAGENTA = '\033[35m'
-    CYAN = '\033[36m'
-    WHITE = '\033[37m'
-    PURPLE = '\033[95m'
 
     BOLD = '\033[1m'
     DIM = '\033[2m'
     ITALICS = '\033[3m'
     UNDERLINE = '\033[4m'
     RESET = '\033[0m'
-
-    COLORS = [BLUE, GREEN, RED, YELLOW, MAGENTA, CYAN, WHITE, PURPLE]
 
     @staticmethod
     def format(message, color='', bold=False, italics=False,
@@ -86,4 +76,4 @@ class FormatIO:
     def prompt():
         """Prompt user for some input."""
         delimiter = u'\u279C'
-        return FormatIO.input(f"Your move {delimiter} ", color=FormatIO.BLUE)
+        return FormatIO.input(f"Your move {delimiter} ", color=Color.BLUE)
