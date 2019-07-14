@@ -1,0 +1,40 @@
+# Python CircleCI 2.0 configuration file
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7.3
+        environment:
+          DATABASE_USER: chris
+
+    working_directory: ~/project
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "setup.py" }}
+            - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -e src/semigenre
+
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "setup.py" }}
+
+      - run:
+          name: run tests
+          command: |
+            . venv/bin/activate
+            pytest src/semigenre
+
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
