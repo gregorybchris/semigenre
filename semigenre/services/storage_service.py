@@ -6,16 +6,16 @@ class StorageService(ABC):
     """Abstract service class for any storage."""
 
     @abstractmethod
-    def insert(self, record):
+    def insert_one(self, record):
         """
         Insert a record into the store.
 
         :param record: Record to store.
         """
-        ...
+        raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
-    def find(self, query, projection):
+    def find(self, query, projection=None):
         """
         Find records in the store.
 
@@ -23,10 +23,10 @@ class StorageService(ABC):
         :param projection: Fields to return.
         :return: All matching records from the store.
         """
-        ...
+        raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
-    def find_one(self, record, projection):
+    def find_one(self, query, projection=None):
         """
         Find a record in the store.
 
@@ -34,4 +34,4 @@ class StorageService(ABC):
         :param projection: Fields to return.
         :return: One record from the store.
         """
-        ...
+        raise NotImplementedError  # pragma: no cover

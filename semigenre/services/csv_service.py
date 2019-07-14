@@ -13,31 +13,34 @@ class CSVService(StorageService):
         """Construct a CSVService."""
         self._collection_name = collection_name
         self._data_directory = settings.data_directory
-        self._df = self._get_create_collection()
+        self._collection_path = self._get_collection_path()
+        self._df = self._get_df()
 
-    def _get_create_collection(self):
-        data_dir = self._data_directory
-        if data_dir is None:
-            raise EnvironmentError("DATA_DIRECTORY not set")
-        if not os.path.exists(data_dir):
-            os.makedirs(data_dir, exist_ok=True)
+    def _get_collection_path(self):
         collection_filename = f'{self._collection_name}.tsv'
-        collection_path = os.path.join(data_dir, collection_filename)
-        if not os.path.exists(collection_path):
-            # with open(collection_path, 'a'):
-            #     os.utime(collection_path, None)
-            return None
-        return pd.read_csv(collection_path)
+        return os.path.join(self._data_directory, collection_filename)
 
-    def insert(self, record):
+    def _get_df(self):
+        if self._data_directory is None:
+            raise EnvironmentError("DATA_DIRECTORY not set.")
+        if not os.path.exists(self._data_directory):
+            os.makedirs(self._data_directory, exist_ok=True)
+        if not os.path.exists(self._collection_path):
+            return None
+        return pd.read_csv(self._collection_path)
+
+    def insert_one(self, record):
         """
         Insert a record into the store.
 
         :param record: Record to store.
         """
+        if not os.path.exists(self._collection_path):
+            with open(self._collection_path, 'a'):
+                os.utime(self._collection_path, None)
         raise NotImplementedError
 
-    def find(self, query, projection):
+    def find(self, query, projection=None):
         """
         Find records in the store.
 
@@ -47,7 +50,7 @@ class CSVService(StorageService):
         """
         raise NotImplementedError
 
-    def find_one(self, record, projection):
+    def find_one(self, query, projection=None):
         """
         Find a record in the store.
 

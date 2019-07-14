@@ -15,6 +15,8 @@ setup(
     url='https://github.com/gregorybchris/semigenre',
     install_requires=[
         'python-vlc==3.0.6109'
+        'pandas==0.24.2',
+        'pymongo==3.8.0'
     ],
     tests_require=[
         'pytest>=5.0.1'

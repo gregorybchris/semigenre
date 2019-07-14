@@ -1,4 +1,7 @@
 """Abstract service for MongoDB storage."""
+from pymongo import MongoClient
+
+from semigenre.services import settings
 from semigenre.services.storage_service import StorageService
 
 
@@ -7,17 +10,31 @@ class MongoService(StorageService):
 
     def __init__(self, collection_name):
         """Construct a MongoService."""
-        self._collection_name = collection_name
+        self._collection = self._connect(collection_name)
 
-    def insert(self, record):
+    def _connect(self, collection_name):
+        """
+        Connect to the database.
+
+        :param collection_name: Name of the collection.
+        :return: Mongo collection object.
+        """
+        client = MongoClient(settings.database_conn)
+        if settings.database_name is None:
+            raise EnvironmentError('DATABASE_NAME not set.')
+        db = client[settings.database_name]
+        return db[collection_name]
+
+    def insert_one(self, record):
         """
         Insert a record into the store.
 
         :param record: Record to store.
+        :return: Document ID.
         """
-        raise NotImplementedError
+        return self._collection.insert_one(record)
 
-    def find(self, query, projection):
+    def find(self, query, projection=None):
         """
         Find records in the store.
 
@@ -25,9 +42,9 @@ class MongoService(StorageService):
         :param projection: Fields to return.
         :return: All matching records from the store.
         """
-        raise NotImplementedError
+        return self._collection.find(query)
 
-    def find_one(self, record, projection):
+    def find_one(self, query, projection=None):
         """
         Find a record in the store.
 
@@ -35,4 +52,4 @@ class MongoService(StorageService):
         :param projection: Fields to return.
         :return: One record from the store.
         """
-        raise NotImplementedError
+        return self._collection.find_one(query)
