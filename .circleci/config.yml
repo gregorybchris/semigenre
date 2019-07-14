@@ -22,7 +22,7 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pip install -e src/semigenre
+            pip install -e ~/project/src/semigenre
 
       - save_cache:
           paths:
@@ -33,7 +33,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            pytest src/semigenre
+            pytest ~/project/src/semigenre
 
       - store_artifacts:
           path: test-reports
