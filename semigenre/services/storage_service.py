@@ -12,7 +12,7 @@ class StorageService(ABC):
 
         :param record: Record to store.
         """
-        raise NotImplementedError  # pragma: no cover
+        ...  # pragma: no cover
 
     @abstractmethod
     def find(self, query, projection=None):
@@ -23,7 +23,7 @@ class StorageService(ABC):
         :param projection: Fields to return.
         :return: All matching records from the store.
         """
-        raise NotImplementedError  # pragma: no cover
+        ...  # pragma: no cover
 
     @abstractmethod
     def find_one(self, query, projection=None):
@@ -34,4 +34,4 @@ class StorageService(ABC):
         :param projection: Fields to return.
         :return: One record from the store.
         """
-        raise NotImplementedError  # pragma: no cover
+        ...  # pragma: no cover

@@ -8,4 +8,4 @@ class Command(ABC):
     @abstractmethod
     def execute(self, *args, **kwargs):
         """Execute the command."""
-        raise NotImplementedError  # pragma: no cover
+        ...  # pragma: no cover
