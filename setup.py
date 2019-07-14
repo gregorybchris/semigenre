@@ -14,7 +14,7 @@ setup(
     author_email='christopher.b.gregory@gmail.com',
     url='https://github.com/gregorybchris/semigenre',
     install_requires=[
-        'python-vlc==3.0.6109'
+        'python-vlc==3.0.6109',
         'pandas==0.24.2',
         'pymongo==3.8.0'
     ],
