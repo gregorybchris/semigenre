@@ -18,9 +18,11 @@ setup(
         'pandas==0.24.2',
         'pymongo==3.8.0'
     ],
-    tests_require=[
-        'pytest>=5.0.1'
-    ],
+    extras_require={
+        'testing': [
+            'pytest>=5.0.1'
+        ]
+    },
     classifiers=[
         'Development Status :: 4 - Beta',  # or "5 - Production/Stable"
         'Intended Audience :: Developers',
