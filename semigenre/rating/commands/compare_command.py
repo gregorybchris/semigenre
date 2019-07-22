@@ -1,15 +1,16 @@
-"""Tag tracks command."""
+"""Track compare command."""
 from semigenre.cli.command import Command
 
 
-class TagCommand(Command):
-    """Tag tracks command."""
+class CompareCommand(Command):
+    """Track compare command."""
 
-    NAME = 'tag'
+    NAME = 'compare'
 
     def execute(self, state):
         """Execute the command."""
+        print("COMPARE")
 
     def get_name(self):
         """Get the name of the command."""
-        return TagCommand.NAME
+        return CompareCommand.NAME

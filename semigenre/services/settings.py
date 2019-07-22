@@ -1,3 +1,4 @@
+"""Settings for services."""
 import os
 
 VAR_DATABASE_NAME = 'DATABASE_NAME'

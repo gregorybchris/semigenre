@@ -9,3 +9,7 @@ class Command(ABC):
     def execute(self, *args, **kwargs):
         """Execute the command."""
         ...  # pragma: no cover
+
+    def get_name(self):
+        """Get the name of the command."""
+        ...  # pragma: no cover
