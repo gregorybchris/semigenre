@@ -8,7 +8,7 @@ setup(
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     keywords=['music', 'song', 'genre', 'recommend', 'sound', 'tune'],
-    version='0.1.1',
+    version='0.1.3',
     license='Apache Software License',
     author='Chris Gregory',
     author_email='christopher.b.gregory@gmail.com',
@@ -16,7 +16,8 @@ setup(
     install_requires=[
         'python-vlc==3.0.6109',
         'pandas==0.24.2',
-        'pymongo==3.8.0'
+        'pymongo==3.8.0',
+        'sentry-sdk==0.10.2'
     ],
     extras_require={
         'testing': [
