@@ -19,10 +19,10 @@ class MongoService(StorageService):
         :param collection_name: Name of the collection.
         :return: Mongo collection object.
         """
-        client = MongoClient(settings.database_conn)
-        if settings.database_name is None:
+        client = MongoClient(settings.DATABASE_CONN)
+        if settings.DATABASE_NAME is None:
             raise EnvironmentError('DATABASE_NAME not set.')
-        db = client[settings.database_name]
+        db = client[settings.DATABASE_NAME]
         return db[collection_name]
 
     def insert_one(self, record):

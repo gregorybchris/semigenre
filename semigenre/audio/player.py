@@ -40,14 +40,15 @@ class Player:
         """
         self._state = Player.PLAY
         self._pipe, child_pipe = Pipe()
-        filepath = self._parse_location(self._track.location)
+        filepath = Player._parse_location(self._track.location)
         args = (child_pipe, filepath)
         p = Process(target=self._play, args=args)
         p.start()
         # TODO: Check what process clean up is needed
         # p.join()
 
-    def _parse_location(self, location):
+    @staticmethod
+    def _parse_location(location):
         parser = urlparse(unquote(location))
         return os.path.abspath(os.path.join(parser.netloc, parser.path))
 

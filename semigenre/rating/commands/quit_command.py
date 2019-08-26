@@ -13,13 +13,12 @@ class QuitCommand(Command):
 
     def execute(self, state):
         """Execute the command."""
-        response = FormatIO.input("Are you sure you want to quit? (y/n)", bold=True)
-        if response == QuitCommand.YES:
-            return QuitCommand.NAME
-        elif response == QuitCommand.NO:
-            return None
-        else:
-            FormatIO.print("Invalid command...", color=Color.RED)
+        while True:
+            response = FormatIO.input("Are you sure you want to quit? (y/n) ", bold=True)
+            if response == QuitCommand.YES:
+                return QuitCommand.NAME
+            elif response == QuitCommand.NO:
+                return None
 
     def get_name(self):
         """Get the name of the command."""

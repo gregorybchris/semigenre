@@ -18,7 +18,7 @@ class ServiceFactory:
         :param collection_name: Name of the collection to create.
         :return: New service of the type defined by the settings.
         """
-        if settings.service_type == ServiceFactory.MONGO_TYPE:
+        if settings.SERVICE_TYPE == ServiceFactory.MONGO_TYPE:
             return MongoService(collection_name)
-        elif settings.service_type == ServiceFactory.CSV_TYPE:
+        elif settings.SERVICE_TYPE == ServiceFactory.CSV_TYPE:
             return CSVService(collection_name)

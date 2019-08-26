@@ -12,7 +12,7 @@ class CSVService(StorageService):
     def __init__(self, collection_name):
         """Construct a CSVService."""
         self._collection_name = collection_name
-        self._data_directory = settings.data_directory
+        self._data_directory = settings.DATA_DIRECTORY
         self._collection_path = self._get_collection_path()
         self._df = self._get_df()
 

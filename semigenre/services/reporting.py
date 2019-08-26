@@ -7,7 +7,7 @@ class Sentry:
 
     def __init__(self):
         """Construct a Sentry connection service."""
-        self._conn = settings.sentry_conn
+        self._conn = settings.SENTRY_CONN
         self._enabled = False
 
     def init(self, conn=None):
