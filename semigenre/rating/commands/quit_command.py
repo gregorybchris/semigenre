@@ -1,5 +1,4 @@
 """Quit command."""
-from semigenre.cli.color import Color
 from semigenre.cli.command import Command
 from semigenre.cli.format_io import FormatIO
 

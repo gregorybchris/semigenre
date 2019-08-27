@@ -1,5 +1,3 @@
-import time
-
 from semigenre.audio.player import Player
 
 
